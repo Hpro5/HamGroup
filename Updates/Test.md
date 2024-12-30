@@ -1,0 +1,7 @@
+# Update 1
+
+This is the first update for HamGroup.
+
+- Point 1
+- Point 2
+- Point 3
