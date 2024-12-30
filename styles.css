@@ -31,3 +31,12 @@ main {
 #updates-container {
     margin-top: 20px;
 }
+
+.update-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
