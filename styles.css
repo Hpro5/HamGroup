@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: #c77100;
+    background-color: #e19a00;
     color: #ffffff;
     padding: 10px;
     text-align: center;
@@ -17,7 +17,7 @@ header {
 #logo {
     position: absolute;
     top: 10px;
-    left: 255px;
+    left: 355px;
     height: 50px;
 }
 
