@@ -1,39 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const updatesContainer = document.getElementById('updates-container');
 
-    // Array of markdown content
-    const updates = [
-        {
-            filename: 'update1.md',
-            content: `
-# Update 1
+    // GitHub repository details
+    const owner = 'Hpro5';
+    const repo = 'HamGroup';
 
-This is the first update for HamGroup.
-
-- Point 1
-- Point 2
-- Point 3
-            `
-        },
-        {
-            filename: 'update2.md',
-            content: `
-# Update 2
-
-This is the second update for HamGroup.
-
-- Another Point
-- Yet Another Point
-- More Points
-            `
-        }
-        // Add more updates as needed
-    ];
-
-    // Render the markdown content
-    updates.forEach(update => {
-        const updateDiv = document.createElement('div');
-        updateDiv.innerHTML = marked(update.content);
-        updatesContainer.appendChild(updateDiv);
-    });
+    // Fetch the list of markdown files from the GitHub repository
+    fetch(`https://api.github.com/repos/${owner}/${repo}/contents/updates`)
+        .then(response => response.json())
+        .then(files => {
+            // Filter markdown files and fetch their contents
+            files.filter(file => file.name.endsWith('.md')).forEach(file => {
+                fetch(file.download_url)
+                    .then(response => response.text())
+                    .then(markdown => {
+                        const updateDiv = document.createElement('div');
+                        updateDiv.innerHTML = marked(markdown);
+                        updatesContainer.appendChild(updateDiv);
+                    });
+            });
+        })
+        .catch(error => console.error('Error loading updates:', error));
 });
