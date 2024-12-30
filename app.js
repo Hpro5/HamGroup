@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load the updates from updates.js
     updates.forEach(update => {
         const updateDiv = document.createElement('div');
-        updateDiv.innerHTML = marked(update.content);
+        updateDiv.innerHTML = update.content;
         updatesContainer.appendChild(updateDiv);
     });
 });
